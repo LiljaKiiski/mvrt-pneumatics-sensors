@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.SensorSubsystem;
 
@@ -27,9 +28,10 @@ public class LogSensorValues extends CommandBase {
   public void execute() {
     // log values to smartdashboard:
     // color sensor
-
+    SmartDashboard.putString("Color", sensorSubsystem.getColor());
     // proximity sensor
-    
+    SmartDashboard.putString("Beam", sensorSubsystem.getProximity());
+
   }
 
   // Called once the command ends or is interrupted.

@@ -19,17 +19,20 @@ public class SensorSubsystem extends SubsystemBase {
   /** Creates a new SensorSubsystem. */
   public SensorSubsystem() {
     // initialize color sensor
-
+    colorSensor = new ColorSensorV3(i2cPort);
     // initialize proximity sensor
-
+    proximitySensor = new DigitalInput(0);
   }
 
   public String getColor(){
-    return "";
+    return "RGB: " + colorSensor.getColor();
   }
 
   public String getProximity(){
-    return "";
+    if (proximitySensor.get()){
+      return "Close enough";
+    }
+    return "Too far";
   }
 
   @Override
